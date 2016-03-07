@@ -33,5 +33,13 @@ z <- cbind(x, y)
 
 # Basic plot script
 plot(z$y,z$'0.5',type='o',col='purple',xlab='Segments',ylab="Dissolved Oxygen",main="Test Plot")
-lines(z$y,z$'5',col='red')
-legend("topright", legend=c("0.5","5.0"), lty=1,col=c("purple","red"),bty='n',cex=0.75)
+lines(z$y,z$'5.5',col='red')
+legend("topright", legend=c("0.5","5.5"), lty=1,col=c("purple","red"),bty='n',cex=0.75)
+
+# Plot with multiple lines
+plot(z$y,z$'0.5', type="l",col="purple", lty=1, ylab = "Dissolved Oxygen", lwd = 2, xlab = "segments",xaxt="n")
+lines(z$y,z$'5.5', type="l", col = "black", lty = 2, lwd = 1)
+lines(z$y,z$'3', type = "l", col = "blue", lty=3, lwd=1)
+legend('topright', legend=c("0.5","5.5", "3"), lty=1, col=c('purple', 'black', 'blue'), bty='n', cex=.75)
+axis(1, at = NULL, labels = TRUE, tick = TRUE)
+

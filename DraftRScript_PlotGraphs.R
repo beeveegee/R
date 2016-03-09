@@ -6,10 +6,13 @@ library(reshape2)
 setwd("C:/Users/Brittany/Dropbox/Thesis/Current WASP Files")
 
 # Import desired csv file
-# Use simple variables throughout to ease substitution of csv files
 
 x <- read.csv("Dissolved_Oxygen.csv", sep = ",", header = FALSE, skip = 1)
+x <- x[ , -168]
 df <- melt(x)
 df$rowid <- x$V1
 
-ggplot(df, aes(variable,value,group=factor(rowid))) + geom_point(aes(color=factor(rowid)))
+ggplot(df, aes(variable,value,group=factor(rowid))) + 
+  geom_path(aes(color=factor(rowid))) + 
+  ggtitle("Dissolved Oxygen") + 
+  labs(x = "Segment", y = "Value")
